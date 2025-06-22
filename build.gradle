@@ -1,7 +1,9 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {url = 'https://repo.grails.org/grails/core' }
         maven { url = 'https://repo.grails.org/grails/restricted' }
+        maven {url = 'https://repository.apache.org/content/groups/snapshots' }
     }
     dependencies { // Not Published to Gradle Plugin Portal
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle"
@@ -23,13 +25,16 @@ plugins {
 apply plugin: "asset-pipeline"
 apply plugin: "org.apache.grails.gradle.grails-web"
 apply plugin: "org.apache.grails.gradle.grails-gsp"
-apply plugin: "org.apache.grails.gradle.grails-plugin"
+// apply plugin: "org.apache.grails.gradle.grails-plugin" // keeping plugin from bootRun
 
 group = "net.codebuilders.mybusiness"
 
 repositories {
     mavenCentral()
+    maven {url = 'https://repo.grails.org/grails/core' }
     maven { url = 'https://repo.grails.org/grails/restricted' }
+    maven {url = 'https://repository.apache.org/content/groups/snapshots' }
+
 }
 
 dependencies {
@@ -37,7 +42,7 @@ dependencies {
     developmentOnly "org.webjars.npm:bootstrap"
     developmentOnly "org.webjars.npm:bootstrap-icons"
     developmentOnly "org.webjars.npm:jquery"
-    implementation "io.github.virtualdogbert:logback-groovy-config:1.12.4"
+    // implementation "io.github.virtualdogbert:logback-groovy-config:1.12.4" // using regular xml config
     implementation platform("org.apache.grails:grails-bom:$grailsVersion")
     implementation "org.apache.grails:grails-core"
     implementation "org.apache.grails:grails-data-hibernate5"
@@ -48,6 +53,7 @@ dependencies {
     implementation "org.apache.grails:grails-interceptors"
     implementation "org.apache.grails:grails-logging"
     implementation "org.apache.grails:grails-quartz:4.0.0-SNAPSHOT"
+    // implementation "org.apache.grails:grails-quartz:4.0.0-M2" // not available in repos yet
     implementation "org.apache.grails:grails-rest-transforms"
     implementation "org.apache.grails:grails-scaffolding"
     implementation "org.apache.grails:grails-services"
@@ -68,9 +74,9 @@ dependencies {
     testImplementation "org.apache.grails:grails-testing-support-datamapping"
     testImplementation "org.apache.grails:grails-testing-support-web"
     testImplementation "org.spockframework:spock-core"
-    testImplementation "org.testcontainers:postgresql"
+    implementation "org.testcontainers:postgresql" // was testImplementation
     testImplementation "org.testcontainers:spock"
-    testImplementation "org.testcontainers:testcontainers"
+    implementation "org.testcontainers:testcontainers" // testImplementation
 }
 
 compileJava.options.release = 21
