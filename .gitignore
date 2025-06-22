@@ -3,6 +3,23 @@
 # suggested that you use the "grails integrate-with --git" command
 # to generate your .gitignore file.
 
+# linux backup files
+*~
+
+# updated to grails 4
+Thumbs.db
+.DS_Store
+.gradle
+build/
+out/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+
 # web application files
 /web-app/WEB-INF/classes
 
