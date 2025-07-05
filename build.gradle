@@ -25,7 +25,7 @@ plugins {
 apply plugin: "asset-pipeline"
 apply plugin: "org.apache.grails.gradle.grails-web"
 apply plugin: "org.apache.grails.gradle.grails-gsp"
-// apply plugin: "org.apache.grails.gradle.grails-plugin" // keeping plugin from bootRun
+apply plugin: "org.apache.grails.gradle.grails-plugin" // keeping plugin from bootRun in 7.0.0.M4
 
 group = "net.codebuilders.mybusiness"
 
@@ -42,7 +42,6 @@ dependencies {
     developmentOnly "org.webjars.npm:bootstrap"
     developmentOnly "org.webjars.npm:bootstrap-icons"
     developmentOnly "org.webjars.npm:jquery"
-    // implementation "io.github.virtualdogbert:logback-groovy-config:1.12.4" // using regular xml config
     implementation platform("org.apache.grails:grails-bom:$grailsVersion")
     implementation "org.apache.grails:grails-core"
     implementation "org.apache.grails:grails-data-hibernate5"
@@ -77,6 +76,8 @@ dependencies {
     implementation "org.testcontainers:postgresql" // was testImplementation
     testImplementation "org.testcontainers:spock"
     implementation "org.testcontainers:testcontainers" // testImplementation
+    // implementation "org.grails.plugins:spring-security-core:$grailsVersion" // added security
+    implementation "org.apache.grails:grails-spring-security:$grailsVersion" // added security
 }
 
 compileJava.options.release = 21

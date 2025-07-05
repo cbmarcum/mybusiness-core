@@ -66,8 +66,12 @@ environments:
       driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
   test:
     dataSource:
-      dbCreate: update
-      url: jdbc:postgresql://localhost:5432/testDb
+      # so we can use testcontainers for bootRun -Dgrails.env=test
+      # dbCreate: update
+      # url: jdbc:postgresql://localhost:5432/testDb
+    dbCreate: create-drop
+    url: jdbc:tc:postgresql:12:///postgres
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
   production:
     dataSource:
       dbCreate: none

@@ -35,3 +35,6 @@
 
 - [Grails Asset Pipeline Core documentation](https://github.com/bertramdev/asset-pipeline#readme)
 
+## Spring Security Core
+
+- [Grails Security Core documentation](https://apache.github.io/grails-spring-security/)
